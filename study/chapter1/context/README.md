@@ -72,6 +72,14 @@ Quarterly average = $2,400,723.93
 
 基线组先调用三次 `convert_currency`，再调用一次 `code_interpreter` 完成求和与平均值计算，因此在 3 轮内完成了任务。
 
+### 本机生成的结果文件
+
+- [15 组消融汇总 JSON](results/deepseek_ablation.json)
+- [自动生成的实验报告](results/ablation_study_report.md)
+- [消融结果图表](results/ablation_study_results.png)
+
+上述文件已从实验源码目录移入本学习档案；原始逐轮 API 证据仍保留在下文的 `validation/deepseek_run_01/`，以便复查具体请求、响应和工具轨迹。
+
 ### 各组行为分析
 
 #### `full`：完整上下文
