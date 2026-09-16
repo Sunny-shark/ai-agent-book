@@ -16,7 +16,7 @@
 
 | 章节 | 状态 | 实验记录 | 章节总结 |
 | --- | --- | --- | --- |
-| [第 1 章](chapter1/README.md) | 学习中 | [Context 消融实验](chapter1/context/README.md) | 待完成 |
+| [第 1 章](chapter1/README.md) | 学习中 | [Context 消融实验](chapter1/context/README.md)、[Search-Codegen](chapter1/search-codegen/README.md) | 待完成 |
 | [第 2 章](chapter2/README.md) | 待学习 | — | — |
 | [第 3 章](chapter3/README.md) | 待学习 | — | — |
 | [第 4 章](chapter4/README.md) | 待学习 | — | — |
