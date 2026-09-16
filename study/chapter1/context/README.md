@@ -110,7 +110,7 @@ Quarterly average = $2,400,723.93
 
 ## 复现证据与完整性
 
-- 原始逐轮证据：[`validation/deepseek_run_01/evidence.json`](validation/deepseek_run_01/evidence.json)
+- 原始逐轮证据：[`chapter1/context/validation/deepseek_run_01/evidence.json`](../../../chapter1/context/validation/deepseek_run_01/evidence.json)
 - SHA-256：`266119108adc4b7d71733813ad4e6a36411898a25515f22584850cd25ca4118a`
 - 运行配置：`real_api`、`guarded` 任务、`empty` 工具结果隐藏方式、五个实验组均存在。
 - 框架结论：`experiment_execution_accepted: true`。
