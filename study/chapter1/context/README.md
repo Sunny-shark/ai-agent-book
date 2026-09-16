@@ -10,7 +10,7 @@
 | --- | --- |
 | 实验日期 | 2026-09-16 |
 | 模型提供商 | DeepSeek API |
-| 模型 | `deepseek-v4-flash` |
+| 模型 | `deepseek-v4.1-flash` |
 | Python | 3.13.3 |
 | OpenAI SDK | 2.48.0 |
 | requests | 2.33.1 |
