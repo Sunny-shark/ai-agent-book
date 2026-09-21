@@ -1,0 +1,13 @@
+{
+  "experiment_id": "2-1",
+  "official_complete": true,
+  "protocol_sha256": "57cc6e64c8d9d9c16066c6e8e620b2086ba21548895e397990d046f868db1830",
+  "evidence_sha256": "b0f6bed95721ca127035f9e1d7038e5476384738c67dab17d64085981177db3b",
+  "credential_scan_passed": true,
+  "credential_scan_findings": [],
+  "cost": {
+    "amount": 0,
+    "currency": "USD",
+    "qualification": "local inference"
+  }
+}
