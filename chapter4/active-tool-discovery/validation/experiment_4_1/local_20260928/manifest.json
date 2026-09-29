@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-09-29T05:52:09.385752+00:00",
+  "files": [
+    {
+      "path": "catalog.schemas.json.gz",
+      "bytes": 21565,
+      "sha256": "f9b0c14931014cd5e8463d54c6d8c55d77190b4ead7bac59ffce3c410208c434"
+    },
+    {
+      "path": "catalog_receipt.json",
+      "bytes": 884,
+      "sha256": "4939514250e8c231561b3862fa98ad645f6b89627e68afcba5a9a61d8a49f1df"
+    },
+    {
+      "path": "control\\apple_stock_news\\receipt.json",
+      "bytes": 54127,
+      "sha256": "432c61d2bf72e5dc0369e534c1275329e77f4edb636bc04b6dbe517ccf1f25af"
+    },
+    {
+      "path": "control\\github_contributors_visualization\\failure.json",
+      "bytes": 572,
+      "sha256": "c23b5823005a4944d11f1cb5666394b42bbc888b16dd2ebcc91a754ee90a22c8"
+    },
+    {
+      "path": "embedding_receipt.json",
+      "bytes": 601,
+      "sha256": "23ff659389b7b4a8b967457d1d2f2d31b7f70bbe4008b7c7bfbd32b1368b3acb"
+    },
+    {
+      "path": "index\\embeddings-all-MiniLM-L6-v2-f2d5d8db4024874c1de2.json",
+      "bytes": 1414108,
+      "sha256": "ec10f48949dc50b8d9fd795d333bda4b683c4433141f5916249e3e5ed28cd470"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 1986,
+      "sha256": "3988303bcdc4506ed3ad410883e971493d9bc343e7058c02c4560bbd583850f8"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 3180,
+      "sha256": "8e5408ca9ec6308b02dd7b3e968f6fb8bab28af2fa68306e07923b869141449a"
+    },
+    {
+      "path": "treatment\\apple_stock_news\\receipt.json",
+      "bytes": 73578,
+      "sha256": "d98dc9d64d4526d7264131ce5b1d18af3afc8714ba6db96994f30c42173d446e"
+    },
+    {
+      "path": "treatment\\github_contributors_visualization\\contributors.svg",
+      "bytes": 2622,
+      "sha256": "1f917ae2b6eefc8841fc2a1b8e12d58dce53fa8d6ca249e3180ca8b35480ad27"
+    },
+    {
+      "path": "treatment\\github_contributors_visualization\\receipt.json",
+      "bytes": 74794,
+      "sha256": "8dc6199b23aa4833e1df5d7285f568b5e45df2262b87bd4999608776efc6716d"
+    }
+  ]
+}

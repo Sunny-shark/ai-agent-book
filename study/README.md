@@ -17,9 +17,9 @@
 | 章节 | 状态 | 实验记录 | 章节总结 |
 | --- | --- | --- | --- |
 | [第 1 章](chapter1/README.md) | 学习中 | [Context 消融实验](chapter1/context/README.md)、[Search-Codegen](chapter1/search-codegen/README.md) | 待完成 |
-| [第 2 章](chapter2/README.md) | 待学习 | — | — |
+| [第 2 章](chapter2/README.md) | 学习中 | [本地 LLM 服务实验](chapter2/local-llm-serving/README.md) | [阶段性总结](chapter2/README.md) |
 | [第 3 章](chapter3/README.md) | 待学习 | — | — |
-| [第 4 章](chapter4/README.md) | 待学习 | — | — |
+| [第 4 章](chapter4/README.md) | 学习中 | [主动工具发现](chapter4/active-tool-discovery/README.md) | [阶段性总结](chapter4/README.md) |
 | [第 5 章](chapter5/README.md) | 待学习 | — | — |
 | [第 6 章](chapter6/README.md) | 待学习 | — | — |
 | [第 7 章](chapter7/README.md) | 待学习 | — | — |

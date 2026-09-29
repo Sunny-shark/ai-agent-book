@@ -1,0 +1,884 @@
+{
+  "model": "mock-offline",
+  "embedder": "local-hash-512",
+  "tool_set_size": 126,
+  "offline": true,
+  "strategies": [
+    "full",
+    "prefilter",
+    "discovery"
+  ],
+  "records": [
+    {
+      "task": "finance+news",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "get_stock_price",
+          "search_news"
+        ],
+        "trace": [
+          "[call] get_stock_price({\"symbol\": \"AAPL\"})",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.017
+    },
+    {
+      "task": "finance+news",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1022,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "get_top_headlines",
+          "get_news_by_source",
+          "search_news",
+          "get_stock_price",
+          "get_stock_history",
+          "web_search",
+          "get_company_financials",
+          "get_dividend_history",
+          "convert_document",
+          "get_horoscope"
+        ],
+        "called": [
+          "get_stock_price",
+          "search_news"
+        ],
+        "trace": [
+          "[call] get_stock_price({\"symbol\": \"AAPL\"})",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.01
+    },
+    {
+      "task": "finance+news",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1019,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "get_analyst_ratings",
+          "get_crypto_price",
+          "get_news_by_source",
+          "get_stock_price",
+          "get_traffic_info",
+          "github_search_code",
+          "google_search",
+          "search_news"
+        ],
+        "called": [
+          "discover_tools",
+          "get_stock_price",
+          "discover_tools",
+          "search_news"
+        ],
+        "trace": [
+          "[discover_tools] need='查询某股票的实时价格与涨跌幅' -> ['get_crypto_price', 'get_stock_price', 'get_traffic_info', 'get_analyst_ratings']",
+          "[call] get_stock_price({\"symbol\": \"AAPL\"})",
+          "[discover_tools] need='按关键词检索相关的最新新闻' -> ['search_news', 'github_search_code', 'get_news_by_source', 'google_search']",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.016
+    },
+    {
+      "task": "arxiv+download",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "arxiv_search",
+          "download_file"
+        ],
+        "trace": [
+          "[call] arxiv_search({\"query\": \"查询\", \"max_results\": 3})",
+          "[call] download_file({\"url\": \"https://example.com/f.pdf\", \"path\": \"/tmp/paper.pdf\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "arxiv+download",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 997,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "arxiv_get_paper",
+          "s3_download",
+          "get_citations",
+          "google_search",
+          "bing_search",
+          "arxiv_search",
+          "get_news_by_source",
+          "download_file",
+          "universal_search",
+          "get_stock_history"
+        ],
+        "called": [
+          "arxiv_search",
+          "download_file"
+        ],
+        "trace": [
+          "[call] arxiv_search({\"query\": \"查询\", \"max_results\": 3})",
+          "[call] download_file({\"url\": \"https://example.com/f.pdf\", \"path\": \"/tmp/paper.pdf\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "arxiv+download",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1084,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "arxiv_search",
+          "delete_file",
+          "download_file",
+          "s3_download",
+          "search_news",
+          "search_pubmed",
+          "semantic_scholar_search",
+          "upload_file"
+        ],
+        "called": [
+          "discover_tools",
+          "arxiv_search",
+          "discover_tools",
+          "download_file"
+        ],
+        "trace": [
+          "[discover_tools] need='在学术论文库检索最新论文' -> ['semantic_scholar_search', 'arxiv_search', 'search_pubmed', 'search_news']",
+          "[call] arxiv_search({\"query\": \"查询\", \"max_results\": 3})",
+          "[discover_tools] need='从 URL 下载文件保存到本地' -> ['download_file', 's3_download', 'upload_file', 'delete_file']",
+          "[call] download_file({\"url\": \"https://example.com/f.pdf\", \"path\": \"/tmp/paper.pdf\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.015
+    },
+    {
+      "task": "github+viz",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "github_list_contributors",
+          "render_chart"
+        ],
+        "trace": [
+          "[call] github_list_contributors({\"owner\": \"pytorch\", \"repo\": \"pytorch\"})",
+          "[call] render_chart({\"data\": \"[]\", \"chart_type\": \"bar\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "github+viz",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1069,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "github_get_commits",
+          "github_list_contributors",
+          "ask_knowledge_base",
+          "universal_search",
+          "render_chart",
+          "get_stock_price",
+          "get_stock_history",
+          "get_dividend_history",
+          "quick_answer",
+          "github_get_repo"
+        ],
+        "called": [
+          "github_list_contributors",
+          "render_chart"
+        ],
+        "trace": [
+          "[call] github_list_contributors({\"owner\": \"pytorch\", \"repo\": \"pytorch\"})",
+          "[call] render_chart({\"data\": \"[]\", \"chart_type\": \"bar\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "github+viz",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1166,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "code_interpreter",
+          "get_recipe",
+          "github_get_commits",
+          "github_get_pull_requests",
+          "github_get_repo",
+          "github_list_contributors",
+          "insert_record",
+          "render_chart"
+        ],
+        "called": [
+          "discover_tools",
+          "github_list_contributors",
+          "discover_tools",
+          "render_chart"
+        ],
+        "trace": [
+          "[discover_tools] need='获取 GitHub 仓库的贡献者提交统计' -> ['github_get_commits', 'github_list_contributors', 'github_get_repo', 'github_get_pull_requests']",
+          "[call] github_list_contributors({\"owner\": \"pytorch\", \"repo\": \"pytorch\"})",
+          "[discover_tools] need='根据数据渲染可视化图表' -> ['render_chart', 'code_interpreter', 'insert_record', 'get_recipe']",
+          "[call] render_chart({\"data\": \"[]\", \"chart_type\": \"bar\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.015
+    },
+    {
+      "task": "weather+calendar",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "get_weather_forecast",
+          "create_calendar_event"
+        ],
+        "trace": [
+          "[call] get_weather_forecast({\"location\": \"北京\", \"days\": 3})",
+          "[call] create_calendar_event({\"title\": \"户外徒步\", \"start\": \"2026-07-19T09:00\", \"end\": \"2026-07-19T12:00\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "weather+calendar",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1087,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "create_calendar_event",
+          "get_current_weather",
+          "list_calendar_events",
+          "quick_answer",
+          "get_weather_forecast",
+          "get_top_headlines",
+          "web_search",
+          "github_list_contributors",
+          "github_get_commits",
+          "get_earnings_calendar"
+        ],
+        "called": [
+          "get_weather_forecast",
+          "create_calendar_event"
+        ],
+        "trace": [
+          "[call] get_weather_forecast({\"location\": \"北京\", \"days\": 3})",
+          "[call] create_calendar_event({\"title\": \"户外徒步\", \"start\": \"2026-07-19T09:00\", \"end\": \"2026-07-19T12:00\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "weather+calendar",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1070,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "compress_files",
+          "create_calendar_event",
+          "generate_uuid",
+          "get_current_weather",
+          "get_holidays",
+          "get_traffic_info",
+          "get_weather_forecast",
+          "list_calendar_events"
+        ],
+        "called": [
+          "discover_tools",
+          "get_weather_forecast",
+          "discover_tools",
+          "create_calendar_event"
+        ],
+        "trace": [
+          "[discover_tools] need='查询某城市未来若干天的天气预报' -> ['get_weather_forecast', 'get_current_weather', 'get_holidays', 'get_traffic_info']",
+          "[call] get_weather_forecast({\"location\": \"北京\", \"days\": 3})",
+          "[discover_tools] need='在日历上创建一个事件' -> ['create_calendar_event', 'compress_files', 'list_calendar_events', 'generate_uuid']",
+          "[call] create_calendar_event({\"title\": \"户外徒步\", \"start\": \"2026-07-19T09:00\", \"end\": \"2026-07-19T12:00\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.015
+    },
+    {
+      "task": "forex+weather",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "get_forex_rate",
+          "get_current_weather"
+        ],
+        "trace": [
+          "[call] get_forex_rate({\"base\": \"USD\", \"quote\": \"JPY\"})",
+          "[call] get_current_weather({\"location\": \"北京\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "forex+weather",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1043,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "list_calendar_events",
+          "get_weather_forecast",
+          "get_current_weather",
+          "search_pubmed",
+          "video_summarize",
+          "create_calendar_event",
+          "send_slack_message",
+          "quick_answer",
+          "arxiv_get_paper",
+          "convert_currency"
+        ],
+        "called": [
+          "get_current_weather"
+        ],
+        "trace": [
+          "[不可用] get_forex_rate",
+          "[call] get_current_weather({\"location\": \"北京\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": false,
+        "precise": false,
+        "filled_slots": 1,
+        "total_slots": 2,
+        "missed_slots": [
+          [
+            "get_forex_rate",
+            "convert_currency"
+          ]
+        ],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "forex+weather",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1085,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "convert_currency",
+          "currency_list",
+          "get_crypto_price",
+          "get_current_weather",
+          "get_flight_status",
+          "get_forex_rate",
+          "get_holidays",
+          "get_traffic_info"
+        ],
+        "called": [
+          "discover_tools",
+          "get_forex_rate",
+          "discover_tools",
+          "get_current_weather"
+        ],
+        "trace": [
+          "[discover_tools] need='查询两种法定货币的外汇汇率' -> ['get_forex_rate', 'convert_currency', 'currency_list', 'get_crypto_price']",
+          "[call] get_forex_rate({\"base\": \"USD\", \"quote\": \"JPY\"})",
+          "[discover_tools] need='查询某城市的实时天气' -> ['get_current_weather', 'get_traffic_info', 'get_flight_status', 'get_holidays']",
+          "[call] get_current_weather({\"location\": \"北京\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.015
+    },
+    {
+      "task": "crypto+news",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "get_crypto_price",
+          "search_news"
+        ],
+        "trace": [
+          "[call] get_crypto_price({\"symbol\": \"AAPL\"})",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "crypto+news",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1043,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "get_stock_price",
+          "google_search",
+          "bing_search",
+          "get_news_by_source",
+          "get_stock_history",
+          "search_news",
+          "get_weather_forecast",
+          "github_search_code",
+          "search_places",
+          "create_calendar_event"
+        ],
+        "called": [
+          "search_news"
+        ],
+        "trace": [
+          "[不可用] get_crypto_price",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": false,
+        "precise": false,
+        "filled_slots": 1,
+        "total_slots": 2,
+        "missed_slots": [
+          [
+            "get_crypto_price"
+          ]
+        ],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "crypto+news",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 1004,
+        "num_tools_exposed": 11,
+        "discovered": [
+          "get_commodity_price",
+          "get_crypto_price",
+          "get_gas_price",
+          "get_news_by_source",
+          "get_traffic_info",
+          "github_search_code",
+          "google_search",
+          "search_news"
+        ],
+        "called": [
+          "discover_tools",
+          "get_crypto_price",
+          "discover_tools",
+          "search_news"
+        ],
+        "trace": [
+          "[discover_tools] need='查询加密货币的实时价格' -> ['get_crypto_price', 'get_traffic_info', 'get_gas_price', 'get_commodity_price']",
+          "[call] get_crypto_price({\"symbol\": \"AAPL\"})",
+          "[discover_tools] need='按关键词检索相关的最新新闻' -> ['search_news', 'github_search_code', 'get_news_by_source', 'google_search']",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 2,
+        "total_slots": 2,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.015
+    },
+    {
+      "task": "opinion(诱导)",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "search_news"
+        ],
+        "trace": [
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 1,
+        "total_slots": 1,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "opinion(诱导)",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 965,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "get_stock_history",
+          "get_nft_metadata",
+          "get_news_by_source",
+          "get_top_headlines",
+          "get_earnings_calendar",
+          "github_get_commits",
+          "get_company_financials",
+          "summarize_article",
+          "google_search",
+          "bing_search"
+        ],
+        "called": [],
+        "trace": [
+          "[不可用] search_news",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": false,
+        "precise": false,
+        "filled_slots": 0,
+        "total_slots": 1,
+        "missed_slots": [
+          [
+            "search_news",
+            "get_news_by_source",
+            "get_top_headlines"
+          ]
+        ],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "opinion(诱导)",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 660,
+        "num_tools_exposed": 7,
+        "discovered": [
+          "get_news_by_source",
+          "github_search_code",
+          "google_search",
+          "search_news"
+        ],
+        "called": [
+          "discover_tools",
+          "search_news"
+        ],
+        "trace": [
+          "[discover_tools] need='按关键词检索相关的最新新闻' -> ['search_news', 'github_search_code', 'get_news_by_source', 'google_search']",
+          "[call] search_news({\"query\": \"查询\", \"lang\": \"auto\"})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 1,
+        "total_slots": 1,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "academic(诱导)",
+      "strategy": "full",
+      "result": {
+        "mode": "full_injection",
+        "injected_tokens": 11630,
+        "num_tools_exposed": 126,
+        "called": [
+          "arxiv_search"
+        ],
+        "trace": [
+          "[call] arxiv_search({\"query\": \"查询\", \"max_results\": 3})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 1,
+        "total_slots": 1,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.003
+    },
+    {
+      "task": "academic(诱导)",
+      "strategy": "prefilter",
+      "result": {
+        "mode": "retrieval_prefilter",
+        "injected_tokens": 1010,
+        "num_tools_exposed": 10,
+        "prefiltered": [
+          "get_nft_metadata",
+          "get_distance",
+          "get_news_by_source",
+          "get_timezone",
+          "get_current_time",
+          "get_market_index",
+          "get_stock_history",
+          "scrape_webpage",
+          "get_top_headlines",
+          "get_reddit_posts"
+        ],
+        "called": [],
+        "trace": [
+          "[不可用] arxiv_search",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": false,
+        "precise": false,
+        "filled_slots": 0,
+        "total_slots": 1,
+        "missed_slots": [
+          [
+            "arxiv_search",
+            "semantic_scholar_search",
+            "search_pubmed"
+          ]
+        ],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    },
+    {
+      "task": "academic(诱导)",
+      "strategy": "discovery",
+      "result": {
+        "mode": "active_discovery",
+        "injected_tokens": 708,
+        "num_tools_exposed": 7,
+        "discovered": [
+          "arxiv_search",
+          "search_news",
+          "search_pubmed",
+          "semantic_scholar_search"
+        ],
+        "called": [
+          "discover_tools",
+          "arxiv_search"
+        ],
+        "trace": [
+          "[discover_tools] need='在学术论文库检索最新论文' -> ['semantic_scholar_search', 'arxiv_search', 'search_pubmed', 'search_news']",
+          "[call] arxiv_search({\"query\": \"查询\", \"max_results\": 3})",
+          "[finish] 已完成可完成的子任务。"
+        ],
+        "finished": true
+      },
+      "grade": {
+        "correct": true,
+        "precise": true,
+        "filled_slots": 1,
+        "total_slots": 1,
+        "missed_slots": [],
+        "used_generic_substitute": []
+      },
+      "latency_s": 0.008
+    }
+  ]
+}

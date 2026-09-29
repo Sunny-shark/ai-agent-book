@@ -1,0 +1,15 @@
+{
+  "task": "github_contributors_visualization",
+  "strategy": "control",
+  "status": "failed",
+  "preserved_at": "2026-09-29T13:25:00+08:00",
+  "reason": "Stopped after repeated model/tool turns produced no visualization artifact; user requested preserving the failure without further retries.",
+  "observed_real_backend": {
+    "tool": "github_list_contributors",
+    "endpoint": "https://api.github.com/repos/openai/openai-python/contributors?per_page=10",
+    "http_status": 200
+  },
+  "artifact_present": false,
+  "receipt_present": false,
+  "retry_allowed": false
+}

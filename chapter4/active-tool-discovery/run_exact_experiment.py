@@ -49,6 +49,17 @@ OLLAMA_URL = os.getenv("OLLAMA_URL", "http://127.0.0.1:11434")
 OLLAMA_OPTIONS = {"temperature": 0, "num_ctx": 131072, "num_predict": 1400}
 BASE_TOOL_NAMES = {"web_search", "code_interpreter"}
 DISCOVERY_TOP_K = 5
+MCP_TOOL_TIMEOUT_SECONDS = float(os.getenv("MCP_TOOL_TIMEOUT_SECONDS", "120"))
+SKIP_TASK_IDS = {
+    task_id.strip()
+    for task_id in os.getenv("SKIP_TASK_IDS", "").split(",")
+    if task_id.strip()
+}
+SKIP_CONTROL_TASK_IDS = {
+    task_id.strip()
+    for task_id in os.getenv("SKIP_CONTROL_TASK_IDS", "").split(",")
+    if task_id.strip()
+}
 
 TOOL_PROVENANCE = {
     "yfinance_quote": {"backend": "yahoo-finance-yfinance", "origin": "live-api"},
@@ -556,7 +567,23 @@ async def _call_real_tool(session: ClientSession, task: dict[str, Any], action: 
         for paper_id in ids:
             args = {"paper_id": paper_id, "download_dir": str(download_dir)}
             started = time.perf_counter()
-            result = await session.call_tool(name, args)
+            try:
+                result = await asyncio.wait_for(
+                    session.call_tool(name, args), timeout=MCP_TOOL_TIMEOUT_SECONDS
+                )
+            except TimeoutError:
+                receipt = {
+                    "tool": name,
+                    "success": False,
+                    "error": f"MCP tool call timed out after {MCP_TOOL_TIMEOUT_SECONDS:g}s",
+                    "arguments": args,
+                    "paper_id": paper_id,
+                    "transport": "mcp-stdio",
+                    "latency_seconds": round(time.perf_counter() - started, 3),
+                }
+                state["receipts"].append(receipt)
+                group.append(receipt)
+                continue
             payload = parse_payload(result)
             receipt = mcp_receipt(
                 name, result, payload, arguments=args,
@@ -582,7 +609,21 @@ async def _call_real_tool(session: ClientSession, task: dict[str, Any], action: 
     else:
         args = {"query": query, "options_json": json.dumps(options, ensure_ascii=False)}
     started = time.perf_counter()
-    result = await session.call_tool(name, args)
+    try:
+        result = await asyncio.wait_for(
+            session.call_tool(name, args), timeout=MCP_TOOL_TIMEOUT_SECONDS
+        )
+    except TimeoutError:
+        receipt = {
+            "tool": name,
+            "success": False,
+            "error": f"MCP tool call timed out after {MCP_TOOL_TIMEOUT_SECONDS:g}s",
+            "arguments": args,
+            "transport": "mcp-stdio",
+            "latency_seconds": round(time.perf_counter() - started, 3),
+        }
+        state["receipts"].append(receipt)
+        return receipt
     payload = parse_payload(result)
     if name in ARXIV_SEARCH_TOOLS:
         state["search_payload"] = payload
@@ -793,6 +834,10 @@ async def run_group(session: ClientSession, schemas: list[dict[str, Any]],
                     campaign_dir: Path, *, resume: bool = False) -> list[dict[str, Any]]:
     records = []
     for task in TASKS:
+        if task["id"] in SKIP_TASK_IDS or (
+            strategy == "control" and task["id"] in SKIP_CONTROL_TASK_IDS
+        ):
+            continue
         task_dir = campaign_dir / strategy / task["id"]
         task_dir.mkdir(parents=True, exist_ok=True)
         receipt_path = task_dir / "receipt.json"
@@ -1187,6 +1232,10 @@ async def run(campaign_id: str | None = None, *, resume: bool = False) -> Path:
                 "generated_at": datetime.now(timezone.utc).isoformat(),
                 "model": MODEL, "catalog": catalog,
                 "embedding": embedding_receipt,
+                "skipped_tasks": {
+                    "all_strategies": sorted(SKIP_TASK_IDS),
+                    "control_only": sorted(SKIP_CONTROL_TASK_IDS),
+                },
                 "comparison": comparison,
                 "dynamic_schema_injection_tokens": {
                     row["task"]: row["history_receipt"]["dynamic_schema_injection_tokens"]
