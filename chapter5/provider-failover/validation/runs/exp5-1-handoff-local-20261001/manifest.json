@@ -1,0 +1,137 @@
+{
+  "experiment": "5-1",
+  "run": "exp5-1-handoff-local-20261001",
+  "rows": [
+    {
+      "pair": "gemini→kimi",
+      "arm": "naive",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "gemini-to-kimi-naive.json",
+      "sha256": "c85573e1d2b162e4eb80835c8275fd44dea25d67970d0053a0795cb46a2c2c91"
+    },
+    {
+      "pair": "gemini→kimi",
+      "arm": "neutral",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "gemini-to-kimi-neutral.json",
+      "sha256": "d7a3d17cef5b894a6582b92d91187d563fd544f0b56456749b820623506141ff"
+    },
+    {
+      "pair": "gemini→kimi",
+      "arm": "strip",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "gemini-to-kimi-strip.json",
+      "sha256": "b025967ada89b8f3f303aa0f3ece33a1bee24d43e6041eae997c0c5c235a80da"
+    },
+    {
+      "pair": "kimi→gemini",
+      "arm": "naive",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "kimi-to-gemini-naive.json",
+      "sha256": "2550e18f4e859796a3adc3e39ab0228d7c0c48df8b5716c067a7ba1cf2014399"
+    },
+    {
+      "pair": "kimi→gemini",
+      "arm": "neutral",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "kimi-to-gemini-neutral.json",
+      "sha256": "17f1f069e7f6d1290b9eed8cb30879723291caa0d34c57818abcc901ef96733a"
+    },
+    {
+      "pair": "kimi→gemini",
+      "arm": "strip",
+      "handoff_status": null,
+      "error": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "repeated_calls": 0,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": {
+        "input": 0,
+        "output": 0
+      },
+      "file": "kimi-to-gemini-strip.json",
+      "sha256": "4ce8701906ea853bd9dd5fc7155e9690d263f5904e92b02dc05773bce0cd63c6"
+    }
+  ],
+  "by_arm": {
+    "naive": {
+      "cells": 2,
+      "handoff_ok": 0,
+      "data_complete": 0,
+      "answer_correct": 0,
+      "repeated_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "neutral": {
+      "cells": 2,
+      "handoff_ok": 0,
+      "data_complete": 0,
+      "answer_correct": 0,
+      "repeated_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    },
+    "strip": {
+      "cells": 2,
+      "handoff_ok": 0,
+      "data_complete": 0,
+      "answer_correct": 0,
+      "repeated_calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0
+    }
+  },
+  "gates": {
+    "中立臂在全部厂商组合上切换成功": false,
+    "直传臂的失败都是厂商真实报错": false,
+    "每个单元都留下了原始响应": true,
+    "三条臂各覆盖六种厂商组合": false
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "experiment": "5-1",
+  "generated_at": "20261001T171750Z",
+  "switch_after_tool_calls": 2,
+  "outage": {
+    "injected": true,
+    "statuses": [
+      429,
+      429,
+      503
+    ],
+    "note": "人为注入的连续过载，用来触发熔断；非厂商真实故障"
+  },
+  "models": {
+    "kimi": "kimi-k3",
+    "anthropic": "claude-haiku-4-5-20251001",
+    "gemini": "gemini-3.5-flash"
+  },
+  "rows": [
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "naive",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：MOONSHOT_API_KEY 或 KIMI_API_KEY"
+    },
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "strip",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：MOONSHOT_API_KEY 或 KIMI_API_KEY"
+    },
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "neutral",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：MOONSHOT_API_KEY 或 KIMI_API_KEY"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "naive",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：GEMINI_API_KEY 或 GOOGLE_API_KEY"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "strip",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：GEMINI_API_KEY 或 GOOGLE_API_KEY"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "neutral",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "缺少环境变量：GEMINI_API_KEY 或 GOOGLE_API_KEY"
+    }
+  ]
+}

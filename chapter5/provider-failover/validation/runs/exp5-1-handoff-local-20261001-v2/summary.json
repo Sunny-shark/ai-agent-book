@@ -1,0 +1,93 @@
+{
+  "experiment": "5-1",
+  "generated_at": "20261001T171841Z",
+  "switch_after_tool_calls": 2,
+  "outage": {
+    "injected": true,
+    "statuses": [
+      429,
+      429,
+      503
+    ],
+    "note": "人为注入的连续过载，用来触发熔断；非厂商真实故障"
+  },
+  "models": {
+    "kimi": "kimi-k3",
+    "anthropic": "claude-haiku-4-5-20251001",
+    "gemini": "gemini-3.5-flash"
+  },
+  "rows": [
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "naive",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "kimi HTTP 401: {\"error\":{\"message\":\"Invalid Authentication\",\"type\":\"invalid_authentication_error\"}}"
+    },
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "strip",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "kimi HTTP 401: {\"error\":{\"message\":\"Invalid Authentication\",\"type\":\"invalid_authentication_error\"}}"
+    },
+    {
+      "source": "kimi",
+      "target": "gemini",
+      "arm": "neutral",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "kimi HTTP 401: {\"error\":{\"message\":\"Invalid Authentication\",\"type\":\"invalid_authentication_error\"}}"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "naive",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "gemini HTTP 400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapi"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "strip",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "gemini HTTP 400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapi"
+    },
+    {
+      "source": "gemini",
+      "target": "kimi",
+      "arm": "neutral",
+      "handoff": null,
+      "data_complete": false,
+      "answer_correct": false,
+      "rounds_after_switch": 0,
+      "tokens_after_switch": 0,
+      "repeated_calls": 0,
+      "error": "gemini HTTP 400: {\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapi"
+    }
+  ]
+}
